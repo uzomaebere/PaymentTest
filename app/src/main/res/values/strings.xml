@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Payment Integration App</string>
+    <string name="pay_using_paystack">Pay Using Paystack</string>
+    <string name="pay_using_rave">Pay Using Rave</string>
+    <string name="name_on_card">Name on Card</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="make_payment">Make Payment</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="amount">Amount</string>
+</resources>
