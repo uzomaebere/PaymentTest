@@ -4,7 +4,7 @@
     <string name="pay_using_rave">Pay Using Rave</string>
     <string name="name_on_card">Name on Card</string>
     <string name="card_number">Card Number</string>
-    <string name="expiry_date">Expiry Date</string>
+    <string name="expiry_date">Expiry Month</string>
     <string name="cvv">CVV</string>
     <string name="make_payment">Make Payment</string>
     <string name="first_name">First Name</string>

@@ -1,5 +1,11 @@
 package com.uzoebere.paymenttest
 
+/*
+*   Author: Umemba Uzoma
+*   Date: 21st AUG 2019
+*   Version: 1.0
+* */
+
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -13,12 +19,12 @@ import android.content.Intent
 
 class RaveCheckout : AppCompatActivity() {
 
-    val publicKey = "FLWPUBK-d7ad5c1b41799bf2d88624cf42792048-X"
-    val encryptionKey = "bca888ac5b406cbce7d88284"
-    val narration = "Payment Testing"
-    val country = "NG"
-    val currency = "NGN"
-    var txRef = "Testing Reference"
+    private val publicKey = "Enter your public key from your rave account"
+    private val encryptionKey = "Enter your encryption key from your rave account"
+    private val narration = "Payment Testing"
+    private val country = "NG"
+    private val currency = "NGN"
+    private var txRef = "Testing Reference"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,20 +36,19 @@ class RaveCheckout : AppCompatActivity() {
         val txtAmount = findViewById<EditText>(R.id.txtAmount)
         val txtEmail = findViewById<EditText>(R.id.txtEmail)
 
-
-        btnRavePay.setOnClickListener {
-            val amount = Integer.parseInt(txtAmount.text.toString())
-            makePayment(amount)
-        }
-    }
-
-    fun makePayment(amount: Int) {
-
-        // Create instance of RavePayManager
-
         val email = txtEmail.text.toString()
         val fName = txtFName.text.toString()
         val lName = txtLName.text.toString()
+
+        btnRavePay.setOnClickListener {
+            val amount = Integer.parseInt(txtAmount.text.toString())
+            makePayment(amount, email, fName, lName)
+        }
+    }
+
+    private fun makePayment(amount: Int, email: String, fName: String, lName: String) {
+
+        // Create instance of RavePayManager
 
         RavePayManager(this)
             .setAmount(amount.toDouble())
@@ -60,7 +65,7 @@ class RaveCheckout : AppCompatActivity() {
             .acceptCardPayments(true)
             .acceptMpesaPayments(false)
             .acceptGHMobileMoneyPayments(false)
-            .onStagingEnv(false)
+            .onStagingEnv(true)                 // Change to false in a live environment
             .allowSaveCardFeature(true)
             .withTheme(R.style.DefaultTheme)
             .initialize()
